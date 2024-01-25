@@ -10,12 +10,17 @@ function App() {
     setInputValue(event.target.value);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Submitting')
+  }
+
   return (
     <div className="App">
 
       <div className="container">
         <h1 className="title">TODO List</h1>
-        <form className="todo-form">
+        <form className="todo-form" onSubmit={handleSubmit}>
           <input className="todo-input" type="text"  value={inputValue} onChange={handleChange}/>
           <button className="todo-btn" type="submit" >Submit</button>
         </form>
