@@ -21,7 +21,7 @@ export const TodoForm = ({addTodo}) => {
             className="todo-input"
             type="text"
             value={inputValue}
-            onChange={() => handleChange()}
+            onChange={(e) => handleChange(e)}
           />
           <button className="todo-btn" type="submit">
             Submit
