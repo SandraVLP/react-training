@@ -1,18 +1,27 @@
 
 import './App.css';
 import {useState} from 'react'
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [inputValue, setInputValue] = useState('');
+  const [todoItems, setTodoItem] = useState([]);
  
-  /* The handleChange() function to set a new state for input */
   const handleChange = (event) => {
     setInputValue(event.target.value);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submitting')
+    addTodo(inputValue);
+  }
+
+  const addTodo = (todo) => {
+    setTodoItem([
+      ...todoItems,
+      { id: uuidv4(), task: todo},
+    ])
+    console.log(todoItems)
   }
 
   return (
@@ -21,7 +30,7 @@ function App() {
       <div className="container">
         <h1 className="title">TODO List</h1>
         <form className="todo-form" onSubmit={handleSubmit}>
-          <input className="todo-input" type="text"  value={inputValue} onChange={handleChange}/>
+          <input className="todo-input" type="text"  value={inputValue} onChange={() => handleChange()}/>
           <button className="todo-btn" type="submit" >Submit</button>
         </form>
         <div className="todo-list"></div>
