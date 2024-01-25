@@ -19,9 +19,9 @@ function App() {
         <h1 className="title">TODO List</h1>
         <TodoForm addTodo={addTodo} />
         <div className="todo-list"></div>
-        {/* {todoItems.map((todo, index) => (
+        {todoItems.map((todo, index) => (
           <TodoItem key={index} task={todo} />
-        ))} */}
+        ))}
       </div>
     </div>
   );
