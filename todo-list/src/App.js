@@ -14,6 +14,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTodo(inputValue);
+    setInputValue('');
   }
 
   const addTodo = (todo) => {
